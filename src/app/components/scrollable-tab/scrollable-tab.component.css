@@ -1,0 +1,48 @@
+
+ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+ul li {
+  margin: 0 5px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.active {
+  color: red;
+}
+
+.first {
+  color: green;
+}
+
+.even {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.odd {
+  font-weight: 600;
+}
+
+.indicator {
+  height: 2px;
+  width: 3rem;
+  margin: 2px 0 0 0;
+}

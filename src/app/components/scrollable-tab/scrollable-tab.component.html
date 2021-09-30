@@ -1,0 +1,15 @@
+
+<ul [ngStyle]="{backgroundColor: backgroundColor}" >
+  <li *ngFor="let item of items; let i = index; let f = first; let even = even; let odd = odd"
+      [ngClass]="{'even': even, 'odd': odd}"
+  >
+    <a
+      href="#"
+      [ngStyle]="{color: i === selectedIndex ? titleActiveColor: titleDefaultColor}"
+      [class.first]="f"
+      [class.even] = 'even'
+      (click)="handleSelect(i)"
+    >{{item.title}}</a>
+    <span class="indicator" [ngStyle]="{background: indicatorColor}" *ngIf="i === selectedIndex"></span>
+  </li>
+</ul>
