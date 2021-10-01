@@ -2,3 +2,10 @@
 input {
   border: 1px solid black;
 }
+
+/*host 是 组件本身*/
+/*:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}*/

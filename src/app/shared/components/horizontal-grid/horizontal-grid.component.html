@@ -4,6 +4,9 @@
 </p>
 {{result}}-->
 
-<div appGridItem>
-
+<div appGridItem *ngFor="let channel of channels">
+  <img [src]="channel.icon" alt="" [appGridItemImage]="'2rem'" >
+  <span appGridItemTitle="1rem" class="title">
+    {{channel.title}}
+  </span>
 </div>
