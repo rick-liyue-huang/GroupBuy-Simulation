@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Confirmable, Emoji} from '../../decorators/decorators';
 
 @Component({
   selector: 'app-horizontal-grid',
@@ -8,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class HorizontalGridComponent implements OnInit {
 
   username = '';
+
+  @Emoji() result = 'Hello'
+  @Confirmable('are you sure') handleClick() {
+    console.log('confirm');
+  }
 
   constructor() { }
 

@@ -22,22 +22,32 @@ export class AppComponent {
 
   imageSliders: ImageSlider[] = [
     {
-      imgUrl: 'https://media.istockphoto.com/photos/family-and-friends-happy-moments-in-video-conference-picture-id1217123314?k=20&m=1217123314&s=612x612&w=0&h=BGBa6kz6CDnWyK3eBRVhAIEEWSHOQtxxN-xqxEXVAdg='
-      , link: '',
-      caption: ''
-    },
-    {
-      imgUrl: 'https://media.istockphoto.com/photos/two-swimmers-in-a-pool-joining-hands-picture-id77930894',
+      imgUrl:
+        'https://media.istockphoto.com/photos/morning-jogging-picture-id497687118',
       link: '',
       caption: ''
     },
     {
-      imgUrl: 'https://media.istockphoto.com/photos/family-and-friends-happy-moments-in-video-conference-picture-id1217123314?k=20&m=1217123314&s=612x612&w=0&h=BGBa6kz6CDnWyK3eBRVhAIEEWSHOQtxxN-xqxEXVAdg='
-      , link: '',
+      imgUrl:
+        'https://media.istockphoto.com/photos/listening-the-music-picture-id508949258',
+      link: '',
       caption: ''
     },
     {
-      imgUrl: 'https://media.istockphoto.com/photos/two-swimmers-in-a-pool-joining-hands-picture-id77930894',
+      imgUrl:
+        'https://media.istockphoto.com/photos/pretty-young-teenage-girl-relaxing-on-a-grass-picture-id521982322',
+      link: '',
+      caption: ''
+    },
+    {
+      imgUrl:
+        'https://media.istockphoto.com/photos/beautiful-women-working-out-in-gym-picture-id623680490',
+      link: '',
+      caption: ''
+    },
+    {
+      imgUrl:
+        'https://media.istockphoto.com/photos/jogging-with-my-best-friend-picture-id850045040',
       link: '',
       caption: ''
     }
