@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Channel, ImageSlider} from '../../../shared/components';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home-detail',
@@ -122,6 +123,7 @@ export class HomeDetailComponent implements OnInit {
       link: 'furnitures'
     }
   ];
+  selectedTabLink: string | null = '';
 
   imageSliders: ImageSlider[] = [
     {
@@ -155,9 +157,16 @@ export class HomeDetailComponent implements OnInit {
       caption: ''
     }
   ];
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      console.log('url path params: ', params)
+      this.selectedTabLink = params.get('tabLink')
+    });
+    this.route.queryParamMap.subscribe(params => {
+      console.log("query path params: ",params)
+    })
   }
 
 }

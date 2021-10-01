@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomeContainerComponent, HomeDetailComponent} from './components';
+import {HomeContainerComponent, HomeDetailComponent, HomeGrandComponent} from './components';
 
 const routes: Routes = [
   {
@@ -18,6 +18,9 @@ const routes: Routes = [
          */
         path: ':tabLink',
         component: HomeDetailComponent,
+        children: [
+          {path: 'grand', component: HomeGrandComponent}
+        ]
       }
     ]
   }

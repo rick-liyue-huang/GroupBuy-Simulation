@@ -3,6 +3,7 @@ import {Channel, ImageSlider, ImageSliderComponent} from './shared/components';
 
 
 export interface TopMenu {
+  id: number;
   title: string;
   link?: string;
 }
