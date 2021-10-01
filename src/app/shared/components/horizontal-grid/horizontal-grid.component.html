@@ -4,9 +4,22 @@
 </p>
 {{result}}-->
 
-<div appGridItem *ngFor="let channel of channels">
+<!--<div appGridItem *ngFor="let channel of channels">
   <img [src]="channel.icon" alt="" [appGridItemImage]="'2rem'" >
   <span appGridItemTitle="1rem" class="title">
     {{channel.title}}
   </span>
+</div>-->
+
+<div class="container" [ngStyle]="{
+  'grid-template-rows': templateRows,
+  'grid-template-columns': templateColumns
+  }"
+   (scroll)="handleScroll($event)"
+>
+  <ng-content select="div"></ng-content>
+</div>
+
+<div class="underline" *ngIf="scrollable">
+  <div class="highlight" [ngStyle]="{'margin': sliderMargin}"></div>
 </div>

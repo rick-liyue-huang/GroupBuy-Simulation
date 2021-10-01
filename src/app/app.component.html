@@ -6,7 +6,13 @@
   [indicatorColor]="'blue'"
   (tabSelected)="handleTabSelect($event)"
 >
-  <div>hello content</div>
 </app-scrollable-tab>
 <app-image-slider [sliders]="imageSliders" #imageSlider></app-image-slider>
-<app-horizontal-grid></app-horizontal-grid>
+<app-horizontal-grid>
+  <div appGridItem *ngFor="let channel of channels">
+    <img [src]="channel.icon" alt="" [appGridItemImage]="'2rem'" >
+    <span appGridItemTitle="1rem" class="title">
+    {{channel.title}}
+  </span>
+  </div>
+</app-horizontal-grid>
