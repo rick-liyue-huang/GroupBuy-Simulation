@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {ImageSlider, ImageSliderComponent} from './components';
+import {ImageSlider, ImageSliderComponent} from './shared/components';
 
 
 export interface TopMenu {

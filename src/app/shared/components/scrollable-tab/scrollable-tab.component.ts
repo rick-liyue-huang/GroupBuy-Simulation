@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
-import {TopMenu} from '../../app.component';
+import {TopMenu} from '../../../app.component';
 
 @Component({
   selector: 'app-scrollable-tab',
