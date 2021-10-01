@@ -3,5 +3,9 @@
   [backgroundColor]="'red'"
   [titleActiveColor]="'yellow'"
   [titleDefaultColor]="'white'"
-  [indicatorColor]="'brown'"
-  (tabSelected)="handleTabSelect($event)"></app-scrollable-tab>
+  [indicatorColor]="'blue'"
+  (tabSelected)="handleTabSelect($event)"
+>
+  <div>hello content</div>
+</app-scrollable-tab>
+<app-image-slider [sliders]="imageSliders" #imageSlider></app-image-slider>

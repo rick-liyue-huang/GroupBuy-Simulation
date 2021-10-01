@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {ImageSlider, ImageSliderComponent} from './components';
 
 
 export interface TopMenu {
@@ -13,13 +14,43 @@ export interface TopMenu {
 })
 export class AppComponent {
 
+  @ViewChild(ImageSliderComponent) imgSlider!: ImageSliderComponent;
+
   items: TopMenu[] = [
     {title: 'Hot', link: ''}, {title: 'Clothes', link: ''}, {title: 'Mobile', link: ''}, {title: 'Computer', link: ''}
   ];
+
+  imageSliders: ImageSlider[] = [
+    {
+      imgUrl: 'https://media.istockphoto.com/photos/family-and-friends-happy-moments-in-video-conference-picture-id1217123314?k=20&m=1217123314&s=612x612&w=0&h=BGBa6kz6CDnWyK3eBRVhAIEEWSHOQtxxN-xqxEXVAdg='
+      , link: '',
+      caption: ''
+    },
+    {
+      imgUrl: 'https://media.istockphoto.com/photos/two-swimmers-in-a-pool-joining-hands-picture-id77930894',
+      link: '',
+      caption: ''
+    },
+    {
+      imgUrl: 'https://media.istockphoto.com/photos/family-and-friends-happy-moments-in-video-conference-picture-id1217123314?k=20&m=1217123314&s=612x612&w=0&h=BGBa6kz6CDnWyK3eBRVhAIEEWSHOQtxxN-xqxEXVAdg='
+      , link: '',
+      caption: ''
+    },
+    {
+      imgUrl: 'https://media.istockphoto.com/photos/two-swimmers-in-a-pool-joining-hands-picture-id77930894',
+      link: '',
+      caption: ''
+    }
+  ];
+
+  expression = true;
 
   handleTabSelect(tabMenu: TopMenu) {
     console.log(tabMenu);
   }
 
 
+  ngAfterViewInit() {
+    console.log(this.imageSliders);
+  }
 }

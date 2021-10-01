@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
 import {TopMenu} from '../../app.component';
 
 @Component({
@@ -17,9 +17,13 @@ export class ScrollableTabComponent implements OnInit {
 
   selectedIndex = -1;
 
-  constructor() { }
+  constructor() {
+    console.log('this is constructor');
+  }
 
+  // property and method can be triggered here
   ngOnInit(): void {
+    console.log('this is ngOnInit')
   }
 
   handleSelect(index: number) {

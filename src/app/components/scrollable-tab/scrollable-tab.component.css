@@ -5,6 +5,8 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 ul li {
   margin: 0 5px;
