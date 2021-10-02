@@ -18,7 +18,9 @@ export class HomeContainerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.items = this.service.getTabs();
+    this.service.getTabs().subscribe(tabs => {
+      this.items = tabs;
+    })
     console.log(this.baseurl)
   }
 

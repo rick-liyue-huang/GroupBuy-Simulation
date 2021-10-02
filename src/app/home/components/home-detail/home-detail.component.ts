@@ -23,6 +23,7 @@ export class HomeDetailComponent implements OnInit {
     private cd: ChangeDetectorRef
   ) { }
 
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       console.log('url path params: ', params)
@@ -33,8 +34,14 @@ export class HomeDetailComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       console.log("query path params: ",params)
     });
-    this.channels = this.service.getChannels();
-    this.imageSliders = this.service.getBanners();
+    this.service.getChannels().subscribe(channels => {
+      this.channels = channels
+      this.cd.markForCheck();
+    })
+    this.service.getBanners().subscribe(banners => {
+      this.imageSliders = banners;
+      this.cd.markForCheck();
+    })
   }
 
 }

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import {TopMenu} from '../app.component';
 import {Channel, ImageSlider} from '../shared/components';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  items: TopMenu[] = [
+  /*items: TopMenu[] = [
     {
       title: '热门',
       link: 'hot',
@@ -201,19 +203,19 @@ export class HomeService {
       link: '',
       caption: ''
     }
-  ];
+  ];*/
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getTabs() {
-    return this.items;
+    return this.http.get<TopMenu[]>(`${environment.baseUrl}/tabs`, /*{params: {icode: `${environment.icode}`}}*/)
   }
 
   getChannels() {
-    return this.channels;
+    return this.http.get<Channel[]>(`${environment.baseUrl}/channels`)
   }
 
   getBanners() {
-    return this.imageSliders;
+    return this.http.get<ImageSlider[]>(`${environment.baseUrl}/banners`, /*{params: {icode: `${environment.icode}`}}*/)
   }
 }
