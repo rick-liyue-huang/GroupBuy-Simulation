@@ -1,10 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TopMenu} from '../../../app.component';
 
 @Component({
   selector: 'app-scrollable-tab',
   templateUrl: './scrollable-tab.component.html',
-  styleUrls: ['./scrollable-tab.component.css']
+  styleUrls: ['./scrollable-tab.component.css'],
+  // use onpush to dirty detection, let this component become dump component
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScrollableTabComponent implements OnInit {
 

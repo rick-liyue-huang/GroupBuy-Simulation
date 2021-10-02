@@ -1,0 +1,3 @@
+<span [textContent]="time | date: 'ss:mm:hh'"></span>
+<span #timeRef></span>
+<button (click)="handleClick()">trigger dirty detection</button>
