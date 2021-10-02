@@ -1,7 +1,9 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {Channel, ImageSlider} from '../../../shared/components';
 import {ActivatedRoute} from '@angular/router';
 import {HomeService} from '../../../services';
+import {filter, map} from 'rxjs/operators';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-home-detail',
@@ -9,12 +11,15 @@ import {HomeService} from '../../../services';
   styleUrls: ['./home-detail.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeDetailComponent implements OnInit {
+export class HomeDetailComponent implements OnInit, OnDestroy {
 
   channels: Channel[] =[];
   imageSliders: ImageSlider[] =[];
+  imageSliders$!: Observable<ImageSlider[]>
 
   selectedTabLink: string | null = '';
+  selectedTabLink$!: Observable<string | null>
+  sub!: Subscription;
 
 
   constructor(
@@ -25,13 +30,24 @@ export class HomeDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      console.log('url path params: ', params)
-      this.selectedTabLink = params.get('tabLink');
+    /*this.route.paramMap
+      .pipe(
+        filter(params => params.has('tabLink')),
+        map(params => params.get('tabLink'))
+      )
+      .subscribe(tabLink => {
+        console.log('url path params: ', tabLink)
+      // this.selectedTabLink = params.get('tabLink');
+        this.selectedTabLink = tabLink;
       // if the detail component is onPush detection, it needs the manual change
-      this.cd.markForCheck();
-    });
-    this.route.queryParamMap.subscribe(params => {
+        this.cd.markForCheck();
+    });*/
+    this.selectedTabLink$ = this.route.paramMap
+      .pipe(
+        filter(params => params.has('tabLink')),
+        map(params => params.get('tabLink'))
+      );
+    this.sub = this.route.queryParamMap.subscribe(params => {
       console.log("query path params: ",params)
     });
     this.service.getChannels().subscribe(channels => {
@@ -42,6 +58,11 @@ export class HomeDetailComponent implements OnInit {
       this.imageSliders = banners;
       this.cd.markForCheck();
     })
+    // this.imageSliders$ = this.service.getBanners()
+  }
+  // avoid memory leakage
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
 }

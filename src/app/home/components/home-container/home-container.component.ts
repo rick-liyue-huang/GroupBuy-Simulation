@@ -3,6 +3,7 @@ import {ImageSliderComponent} from '../../../shared/components';
 import {TopMenu} from '../../../app.component';
 import {Router} from '@angular/router';
 import {HomeService, token} from '../../../services';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home-container',
@@ -21,12 +22,14 @@ export class HomeContainerComponent implements OnInit {
     this.service.getTabs().subscribe(tabs => {
       this.items = tabs;
     })
+    this.items$ = this.service.getTabs();
     console.log(this.baseurl)
   }
 
   @ViewChild(ImageSliderComponent) imgSlider!: ImageSliderComponent;
 
   items: TopMenu[] = [];
+  items$!: Observable<TopMenu[]>;
 
   expression = true;
 
